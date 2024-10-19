@@ -1,0 +1,45 @@
+version: 2
+sources:
+  - name: bd
+    description: 'Database in the server containing all data needed for the platform.'
+    database: plataforma_academica
+    schema: public
+    tables:
+      - name: estudiantes
+        description: 'Tabla con el historial de los estudiantes'
+        columns:
+          - name: cod_es
+            description: 'Llave primária de la tabla de estudiantes.'
+            tests:
+              - unique
+              - not_null
+      - name: programas
+        description: 'Tabla con el historial de programas en FATELA'
+      - name: asignaturas
+        description: 'Tabla con informacion de las asignaturas, tal como el nivel, los creditos y el programa al que pertenece'
+        columns: 
+          - name: cod_asig
+            description: 'Llave primaria de las asignaturas'
+            tests:
+              - not_null
+          - name: fk_programa
+            description: 'Columna que especifica a que programa pertenece la asignatura'
+            tests:
+              - not_null
+      - name: cursos
+        description: 'Tabla con informacion de cada curso, tal como el profesor y el periodo electivo'
+      - name: notas
+        description: 'Tabla que tiene la informacion historica de las notas por usuario por curso tomado'
+        columns:
+          - name: fk_estudiante
+            description: 'columna con llave foranea de estudiante'
+            
+          - name: asignatura
+            description: 'Columna con el nombre de la asignatura tomada'
+            tests:
+              - not_null
+          - name: periodo
+            description: 'Columna con el periodo electivo de la asignatura'
+            tests:
+              - not_null
+
