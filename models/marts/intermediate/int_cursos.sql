@@ -20,5 +20,13 @@ codigos_resumidos_segundo_filtro as (
         , profesor_curso
         , anio_electivo
     from codigos_resumidos
+),
+real_curso as (
+    select 
+        concat(codigo_curso, '-', anio_electivo) as curso_real
+        , codigo_curso
+        , profesor_curso
+        , anio_electivo
+    from codigos_resumidos_segundo_filtro
 )
-select * from codigos_resumidos_segundo_filtro 
+select * from real_curso 
