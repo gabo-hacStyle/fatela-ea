@@ -6,9 +6,11 @@ with  renamed as (
         , aprobado
         , nota
         , status
+        , maestria
     from {{ source('bd', 'notas') }}
 )
 
 select * from renamed 
+
 
 
