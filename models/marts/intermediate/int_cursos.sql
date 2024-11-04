@@ -27,6 +27,19 @@ real_curso as (
         , codigo_curso
         , profesor_curso
         , anio_electivo
+        
     from codigos_resumidos_segundo_filtro
+),
+ignoring_identical_registros as (
+    select 
+        curso_real
+        , codigo_curso
+        , profesor_curso
+        , anio_electivo
+        , ROW_NUMBER() OVER (PARTITION BY curso_real) AS rn
+    from real_curso
 )
-select * from real_curso 
+select 
+        curso_real, codigo_curso, profesor_curso, anio_electivo
+    from ignoring_identical_registros where rn = 1
+
