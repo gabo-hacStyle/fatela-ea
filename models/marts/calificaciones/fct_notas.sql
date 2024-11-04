@@ -37,7 +37,7 @@ joined as (
         
 
     from int_notas n
-    right join dim_cursos c on c.curso_real = n.fk_curso
+    left join dim_cursos c on c.curso_real = n.fk_curso
     left join dim_estudiantes e on n.fk_estudiante = e.cod_es
     left join int_estudaintes_pais ep on ep.fk_estudiante = e.cod_es
     left join dim_paises p on p.pk_pais = ep.fk_pais
@@ -49,4 +49,4 @@ llave_sk as (
         , *
     from joined
 )
-select * from llave_sk
+select * from llave_sk 
