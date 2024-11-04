@@ -7,7 +7,7 @@ with codigos_resumidos as (
     , profesor_curso
     , anio_electivo
     from {{ ref('stg_cursos') }}
-    WHERE anio_electivo = '2023'
+    
 ), 
 codigos_resumidos_segundo_filtro as (
     select 
