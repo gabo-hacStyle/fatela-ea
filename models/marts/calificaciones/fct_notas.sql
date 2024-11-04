@@ -37,7 +37,7 @@ joined as (
         
 
     from int_notas n
-    left join dim_cursos c on c.curso_real = n.fk_curso
+    right join dim_cursos c on c.curso_real = n.fk_curso
     left join dim_estudiantes e on n.fk_estudiante = e.cod_es
     left join int_estudaintes_pais ep on ep.fk_estudiante = e.cod_es
     left join dim_paises p on p.pk_pais = ep.fk_pais
@@ -48,5 +48,8 @@ llave_sk as (
         md5(concat_ws('-', fk_curso, fk_estudiante, maestria))
         , *
     from joined
+),
+filtrar_no_nulos as (
+    select * from llave_sk where fk_estudiante is not null
 )
-select * from llave_sk 
+select * from filtrar_no_nulos 

@@ -20,6 +20,7 @@ fixing_one as (
         , anio_electivo
     , case 
         when asignatura = 'MS 628 ' then 'MS 628'
+        when asignatura = 'TE-601' or asignatura = 'TE- 601' then 'TE 601'
         else asignatura
     end as asignatura
     , aprobado

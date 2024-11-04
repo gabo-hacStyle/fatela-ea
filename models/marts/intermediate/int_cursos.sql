@@ -7,6 +7,7 @@ with codigos_resumidos as (
     , profesor_curso
     , anio_electivo
     from {{ ref('stg_cursos') }}
+    
 ), 
 codigos_resumidos_segundo_filtro as (
     select 
@@ -20,7 +21,9 @@ codigos_resumidos_segundo_filtro as (
         , profesor_curso
         , anio_electivo
     from codigos_resumidos
+    
 ),
+
 real_curso as (
     select 
         concat(codigo_curso, '-', anio_electivo) as curso_real
