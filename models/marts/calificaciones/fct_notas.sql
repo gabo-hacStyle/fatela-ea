@@ -23,6 +23,7 @@ joined as (
          fk_curso
         , n.fk_estudiante
         , fk_pais
+        , codigo_curso
         , aprobado
         , nota
         , status
@@ -32,7 +33,7 @@ joined as (
         , email_es
         , pais
         , profesor_curso
-        , maestria
+        , n.maestria
 
         
 

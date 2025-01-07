@@ -1,6 +1,6 @@
 with  renamed as (
     select 
-        case when fk_esudiante is null then 'Estudiante no registrado' else fk_esudiante end as fk_estudiante    
+        case when fk_estudiante is null then 'Estudiante no registrado' else fk_estudiante end as fk_estudiante    
         , substring(periodo from length(periodo) - 3 for 4) as anio_electivo
         , asignatura
         , aprobado
