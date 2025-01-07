@@ -1,19 +1,20 @@
-with int_notas as (
-    select 
-        fk_estudiante
-        , anio_electivo
-        , SUBSTRING(
-            asignatura 
-            FROM 2 
-            FOR POSITION(')' IN asignatura) - 2
-        ) AS asignatura
-        , aprobado
-        , nota
-        , status
-        , maestria
-    from {{ ref('stg_notas') }}
-    
+WITH int_notas AS (
+    SELECT 
+        fk_estudiante,
+        anio_electivo,
+        CASE 
+            WHEN POSITION(')' IN asignatura) - 2 < 0 THEN asignatura
+            ELSE SUBSTRING(asignatura FROM 2 FOR POSITION(')' IN asignatura) - 2)
+        END AS asignatura,
+        aprobado,
+        nota,
+        status,
+        maestria
+    FROM {{ ref('stg_notas') }} 
 ),
+-- select * from int_notas where length(asignatura) > 9
+
+
 fixing_one as (
     select 
     fk_estudiante
@@ -28,7 +29,7 @@ fixing_one as (
         , status
         , maestria
     from int_notas
-), 
+) ,
 fk_curso as (
     select 
         concat(asignatura, '-', anio_electivo) as fk_curso
@@ -40,4 +41,5 @@ fk_curso as (
     from fixing_one
 )
 
-select  * from fk_curso 
+
+select * from fk_curso

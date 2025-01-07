@@ -6,7 +6,8 @@ with estudiantes_con_pais as (
             , email_es        
         , case 
             when UPPER(pais_es) LIKE UPPER('%per%')
-                or UPPER(pais_es) LIKE UPPER('%jr.%')  
+                or UPPER(pais_es) LIKE UPPER('%jr.%')
+                or UPPER(pais_es) LIKE UPPER('%lima%') 
                 OR pais_es = 'Los Olivos' 
                 OR pais_es = 'Benjamin Castañeda 218' 
                 -- or pais_es = 'Jr. Lima 746' 
@@ -27,7 +28,6 @@ with estudiantes_con_pais as (
                 or pais_es = 'Urb. El Pacifico Calle Payet'
                 or pais_es = 'Chimbote'
                 or pais_es = 'Huanuco'
-                or pais_es = 'Lima'
                 or pais_es = 'Barlovento 473'
                 or cod_es = '10944'
                 or cod_es = '10772'
@@ -49,6 +49,7 @@ with estudiantes_con_pais as (
             then 'Republica Dominicana'
 
             when UPPER(pais_es) LIKE UPPER('%CHILE%') 
+                or pais_es = 'Autopista Coronel Rafael Tomas Fernandez Dominguez; Residencial Las Palmeras Oriental Bloque J1-1D. San Miguel'
                 or pais_es = 'Santiago' 
                 or pais_es = 'Temuco'
                 or pais_es = 'nest537@gmail.com'
@@ -72,8 +73,8 @@ with estudiantes_con_pais as (
             when pais_es = 'Ambato' 
                 or UPPER(pais_es) LIKE UPPER('%quil%') 
                 or UPPER(pais_es) LIKE UPPER('%guaya%') 
+                or UPPER(pais_es) LIKE UPPER('%quito%')
                 or pais_es = 'Portoviejo' 
-                or pais_es = 'Quito'
                 or UPPER(pais_es) LIKE UPPER('%Claveles%')
                 or pais_es = 'Ecaudor'
                 or pais_es = 'Mexico 541'
@@ -99,6 +100,7 @@ with estudiantes_con_pais as (
             when cod_es = '10643'
                 or cod_es = '10668'
                 or cod_es = '11235'
+                or UPPER(pais_es) LIKE UPPER('%bogot%')
             then 'Colombia'
             when cod_es = '11158' then 'Guatemala'
             when cod_es = '10909' 
