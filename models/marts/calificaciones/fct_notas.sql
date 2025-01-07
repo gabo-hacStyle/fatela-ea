@@ -24,6 +24,7 @@ joined as (
         , n.fk_estudiante
         , fk_pais
         , codigo_curso
+        , nombre_curso
         , aprobado
         , nota
         , status
