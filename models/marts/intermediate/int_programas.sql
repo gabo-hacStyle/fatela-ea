@@ -1,5 +1,5 @@
 with int_programas as (
-    select *
+    select distinct *
     from {{ ref('stg_programas') }}
 )
 

@@ -46,7 +46,6 @@ ignoring_identical_registros as (
         , ROW_NUMBER() OVER (PARTITION BY curso_real) AS rn
     from real_curso
 )
-select 
+    select
         curso_real, codigo_curso, nombre_curso,  profesor_curso, anio_electivo
     from ignoring_identical_registros where rn = 1 
-
