@@ -32,7 +32,8 @@ fixing_one as (
 ) ,
 fk_curso as (
     select 
-        concat(asignatura, '-', anio_electivo) as fk_curso
+        concat(asignatura, '-', anio_electivo, '-', maestria) as fk_curso
+        , concat(asignatura, '-', anio_electivo) as curso_anio
         , fk_estudiante
         , aprobado
         , nota
@@ -40,6 +41,7 @@ fk_curso as (
         , maestria
     from fixing_one
 )
+
 
 
 select * from fk_curso

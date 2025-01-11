@@ -1,9 +1,9 @@
 with int_estudiantes as (
     select 
-        cod_es
-        , nombre_es
-        , genero_es
-        , email_es
+          CAST(cod_es as VARCHAR(255))
+        , CAST(nombre_es as VARCHAR(255))
+        , CAST(genero_es as VARCHAR(255))
+        , CAST(email_es as VARCHAR(255))
         , fecha_modificacion
     from {{ ref('int_estudiantes') }}
 )

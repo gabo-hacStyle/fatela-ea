@@ -8,4 +8,7 @@ joined as (
     from int_estudiantes_paises group by pais_estudiante 
 )
 
-select * from joined 
+select 
+    CAST(pk_pais as int)
+    , CAST(pais as VARCHAR(255))
+ from joined 
